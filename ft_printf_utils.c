@@ -6,12 +6,13 @@
 /*   By: cavan-vl <cavan-vl@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/21 14:23:57 by cavan-vl      #+#    #+#                 */
-/*   Updated: 2024/01/21 15:24:51 by cavan-vl      ########   odam.nl         */
+/*   Updated: 2024/01/21 15:31:02 by cavan-vl      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*FIX THIRD PARAMETER. FIX THIS WHOLE FUNCION. DONT BE MOEILIJK AND DUMB*/
 int	print_nbr(int n, int base, char c)
 {
 	long int	ln;
