@@ -6,21 +6,20 @@
 /*   By: cavan-vl <cavan-vl@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/21 14:23:57 by cavan-vl      #+#    #+#                 */
-/*   Updated: 2024/01/21 15:09:10 by cavan-vl      ########   odam.nl         */
+/*   Updated: 2024/01/21 15:24:51 by cavan-vl      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_nbr(int n, int base, bool unsign)
+int	print_nbr(int n, int base, char c)
 {
-	char		c;
 	long int	ln;
 	int			len;
 
 	ln = (long int)n;
 	len = 0;
-	if (unsign == true)
+	if (c == 'u')
 		n = (unsigned)n;
 	if (ln < 0 && base <= 10)
 	{
@@ -28,8 +27,9 @@ int	print_nbr(int n, int base, bool unsign)
 		ln *= -1;
 	}
 	if (ln  >= base)
-		len += print_nbr(ln / base, base, true);
-	len += print_c((ln % base) + '0');
+		len += print_nbr(ln / base, base, c);
+	ln = ln % base;
+	len += print_c(ln + '0');
 	return (len);
 }
 

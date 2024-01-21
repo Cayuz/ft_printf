@@ -6,7 +6,7 @@
 /*   By: cavan-vl <cavan-vl@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/21 11:17:33 by cavan-vl      #+#    #+#                 */
-/*   Updated: 2024/01/21 15:08:43 by cavan-vl      ########   odam.nl         */
+/*   Updated: 2024/01/21 15:20:36 by cavan-vl      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ int	conversion(const char *str, va_list args)
 	if (*str == 's')
 		return (print_s(va_arg(args, char *)));
 	if (*str == 'd' || *str == 'i')
-		return (print_nbr(va_arg(args, int), 10, false));
+		return (print_nbr(va_arg(args, int), 10, *str));
 	// if (*str == "p")
 		
 	if (*str == "u")
-		return (print_nbr(va_arg(args, int), 10, true));
+		return (print_nbr(va_arg(args, int), 10, *str));
 
 	if (*str == "x")
-		return (print_nbr(va_arg(args, int), 16, true));	
+		return (print_nbr(va_arg(args, int), 16, *str));	
 	if (*str == "X")
-		return (print_nbr(va_arg(args, int), 16, true));
+		return (print_nbr(va_arg(args, int), 16, *str));
 }
 
 int	ft_printf(const char *str, ...)
