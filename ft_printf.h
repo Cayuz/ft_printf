@@ -6,7 +6,7 @@
 /*   By: cavan-vl <cavan-vl@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/21 13:50:37 by cavan-vl      #+#    #+#                 */
-/*   Updated: 2024/01/21 15:21:06 by cavan-vl      ########   odam.nl         */
+/*   Updated: 2024/01/22 20:52:33 by cavan-vl      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <limits.h>
 # include <stdbool.h>
 
 int	print_c(char c);
 int	print_s(char *str);
-int	print_nbr(int n, int base, char c);
+// int	print_p(int ptr);
+int	print_p(void *ptr);
+int	print_int(long int nbr, char c, int base);
+
 int	conversion(const char *str, va_list args);
 int	ft_printf(const char *str, ...);
 

@@ -6,7 +6,7 @@
 /*   By: cavan-vl <cavan-vl@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/21 11:17:33 by cavan-vl      #+#    #+#                 */
-/*   Updated: 2024/01/21 15:20:36 by cavan-vl      ########   odam.nl         */
+/*   Updated: 2024/01/22 20:55:31 by cavan-vl      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,26 @@
 
 int	conversion(const char *str, va_list args)
 {
-	if (*str == '%')
-		return (print_c('%'));
-	if (*str == 'c')
-		return (print_c(va_arg(args, int)));
-	if (*str == 's')
-		return (print_s(va_arg(args, char *)));
-	if (*str == 'd' || *str == 'i')
-		return (print_nbr(va_arg(args, int), 10, *str));
-	// if (*str == "p")
-		
-	if (*str == "u")
-		return (print_nbr(va_arg(args, int), 10, *str));
+	int	len;
 
-	if (*str == "x")
-		return (print_nbr(va_arg(args, int), 16, *str));	
-	if (*str == "X")
-		return (print_nbr(va_arg(args, int), 16, *str));
+	len = 0;
+	if (*str == '%')
+		return (len + print_c('%'));
+	if (*str == 'c')
+		return (len + print_c(va_arg(args, int)));
+	if (*str == 's')
+		return (len + print_s(va_arg(args, char *)));
+	if (*str == 'd' || *str == 'i')
+		return (len + print_int(va_arg(args, int), *str, 10));
+	if (*str == 'u')
+		return (len + print_int(va_arg(args, int), *str, 10));
+	if (*str == 'p')
+		return (len + print_p(va_arg(args, void*)));
+	if (*str == 'x')
+		return (len + print_int(va_arg(args, int), *str, 16));
+	if (*str == 'X')
+		return (len + print_int(va_arg(args, int), *str, 16));
+	return (len);
 }
 
 int	ft_printf(const char *str, ...)
@@ -38,7 +41,9 @@ int	ft_printf(const char *str, ...)
 	int		len;
 	va_list	args;
 
-	va_start(args, *str);
+	if (!str)
+		return (print_s("(null)"));
+	va_start(args, str);
 	len = 0;
 	while (*str)
 	{
@@ -57,11 +62,19 @@ int	ft_printf(const char *str, ...)
 
 int	main()
 {
-	int		num = 5002;
-	char	*str = "Hello";
-	char	letter = 'g';
+	// int		num = 5;
+	// char	*str = "Hello";
+	// char	letter = 'g';
 
-	ft_printf("%d\n", (ft_printf("My printf:\na number: %d\na string: %s\na character: %c\n", num, str, letter)));
-	ft_printf("\n");
-	printf("%d\n", (printf("Og printf:\na number: %d\na string: %s\na character: %c\n", num, str, letter)));
+	// int	hex = 654645;
+	// int	hexup = 89879547;
+	// int test = 46;
+
+	printf("chars: %d\n", ft_printf(" %x ", -100));
+	printf("chars: %d\n", printf(" %x ", -100));
+	// ft_printf("%x\n%X\n", hex, hexup);
+	// ft_printf("total characters printed: %d\n", (ft_printf("My printf:\na number: %d\na string: %s\na character: %c\n", num, str, letter)));
+	// ft_printf("\n");
+	// printf("%x\n%X\n", hex, hexup);
+	// printf("total characters printed: %d\n", (printf("Og printf:\na number: %d\na string: %s\na character: %c\n", num, str, letter)));
 }
