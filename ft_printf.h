@@ -6,7 +6,7 @@
 /*   By: cavan-vl <cavan-vl@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/21 13:50:37 by cavan-vl      #+#    #+#                 */
-/*   Updated: 2024/01/22 20:52:33 by cavan-vl      ########   odam.nl         */
+/*   Updated: 2024/01/23 15:53:14 by cavan-vl      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 int	print_c(char c);
 int	print_s(char *str);
-// int	print_p(int ptr);
 int	print_p(void *ptr);
 int	print_int(long int nbr, char c, int base);
 
