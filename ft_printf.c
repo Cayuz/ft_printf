@@ -6,7 +6,7 @@
 /*   By: cavan-vl <cavan-vl@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/21 11:17:33 by cavan-vl      #+#    #+#                 */
-/*   Updated: 2024/01/22 20:55:31 by cavan-vl      ########   odam.nl         */
+/*   Updated: 2024/01/23 15:34:26 by cavan-vl      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	conversion(const char *str, va_list args)
 	if (*str == 'u')
 		return (len + print_int(va_arg(args, int), *str, 10));
 	if (*str == 'p')
-		return (len + print_p(va_arg(args, void*)));
+		return (len + print_p(va_arg(args, void *)));
 	if (*str == 'x')
 		return (len + print_int(va_arg(args, int), *str, 16));
 	if (*str == 'X')
@@ -59,22 +59,49 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (len);
 }
+// int main(void)
+// {
+// 	ft_printf("• c: print single character test\n");
+// 	char character = 'a';
+// 	ft_printf("  my printf: %c\n", character);
+// 	printf("  og printf: %c\n\n", character);
 
-int	main()
-{
-	// int		num = 5;
-	// char	*str = "Hello";
-	// char	letter = 'g';
+// 	ft_printf("• s: print string test\n");
+// 	char *string = "hallo";
+// 	ft_printf("  my printf: %s\n", string);
+// 	printf("  og printf: %s\n\n", string);
 
-	// int	hex = 654645;
-	// int	hexup = 89879547;
-	// int test = 46;
+// 	ft_printf("• %: double percentage sign test\n");
+// 	ft_printf("  my printf: %%\n");
+// 	printf("  og printf: %%\n\n");
 
-	printf("chars: %d\n", ft_printf(" %x ", -100));
-	printf("chars: %d\n", printf(" %x ", -100));
-	// ft_printf("%x\n%X\n", hex, hexup);
-	// ft_printf("total characters printed: %d\n", (ft_printf("My printf:\na number: %d\na string: %s\na character: %c\n", num, str, letter)));
-	// ft_printf("\n");
-	// printf("%x\n%X\n", hex, hexup);
-	// printf("total characters printed: %d\n", (printf("Og printf:\na number: %d\na string: %s\na character: %c\n", num, str, letter)));
-}
+// 	ft_printf("• i: print integer in base 10 test\n");
+// 	int	num = 543;
+// 	ft_printf("  my printf: %i\n", num);
+// 	printf("  og printf: %i\n\n", num);
+
+// 	ft_printf("• d: print decimal in base 10 test\n");
+// 	int	decml = 42;
+// 	ft_printf("  my printf: %d\n", decml);
+// 	printf("  og printf: %d\n\n", decml);
+
+// 	ft_printf("• u: print unsigned int in base 10 test\n");
+// 	int	unsint = -123;
+// 	ft_printf("  my printf: %u\n", unsint);
+// 	printf("  og printf: %u\n\n", unsint);
+
+// 	ft_printf("• x: print hexadecimal in base 16 lowercase test\n");
+// 	int	hex_lowcase = 9586842;
+// 	ft_printf("  my printf: %x\n", hex_lowcase);
+// 	printf("  og printf: %x\n\n", hex_lowcase);
+
+// 	ft_printf("• X: print hexadecimal in base 16 uppercase test\n");
+// 	int	hex_upcase = 9586842;
+// 	ft_printf("  my printf: %X\n", hex_upcase);
+// 	printf("  og printf: %X\n\n", hex_upcase);
+
+// 	ft_printf("• p: print pointer test\n");
+// 	char *pointer = "h";
+// 	ft_printf("  my printf: %p\n", pointer);
+// 	printf("  og printf: %p\n\n", pointer);
+// }

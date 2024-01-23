@@ -6,7 +6,7 @@
 #    By: cavan-vl <cavan-vl@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/01/21 10:13:44 by cavan-vl      #+#    #+#                  #
-#    Updated: 2024/01/22 20:34:42 by cavan-vl      ########   odam.nl          #
+#    Updated: 2024/01/23 11:52:10 by cavan-vl      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,16 +24,16 @@ OFILES		= $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OFILES) $(HEADER)
-	ar rcs $(NAME) $?
+	@ar rcs $(NAME) $?
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $^
+	@$(CC) $(CFLAGS) -c -o $@ $^
 
 clean:
-	rm -rf $(OFILES)
+	@rm -rf $(OFILES)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
